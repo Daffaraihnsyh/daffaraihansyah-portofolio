@@ -6,6 +6,7 @@ export default defineConfig({
     plugins: [
         tailwindcss(),
     ],
+    base: './',
     build: {
         rollupOptions: {
             input: {
