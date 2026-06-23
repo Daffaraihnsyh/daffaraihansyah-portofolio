@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hasil Karya - Daffa Raihansyah</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/src/style.css" />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .gallery-item {
+        opacity: 0;
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-950 text-slate-200 font-['Inter'] antialiased selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen flex flex-col relative"
+  >
+    <!-- Background Music -->
+
+    <!-- Moving Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+      <div
+        class="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[120px] mix-blend-screen"
+      ></div>
+      <div
+        class="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] rounded-full bg-indigo-600/10 blur-[140px] mix-blend-screen"
+      ></div>
+    </div>
+
+    <!-- Main Content -->
+    <main
+      class="flex-grow pt-10 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full relative z-10"
+    >
+      <!-- Header & Back Button -->
+      <div class="flex items-center gap-4 mb-10 animate-fade-in">
+        <a
+          href="skills.html"
+          class="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 transition-all text-slate-300"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div class="flex items-center gap-4">
+          <img
+            id="software-logo"
+            src=""
+            alt=""
+            class="w-12 h-12 rounded-xl bg-white p-1.5 object-contain shadow-md hidden"
+          />
+          <div>
+            <h1
+              class="text-2xl md:text-3xl font-bold text-white font-['Outfit']"
+              id="page-title"
+            >
+              Hasil Karya
+            </h1>
+            <p class="text-sm text-cyan-400" id="page-subtitle">
+              Memuat karya...
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div
+        id="gallery-container"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+      >
+        <!-- Items injected by JS -->
+      </div>
+    </main>
+
+    <!-- Main Script for Music Persistance -->
+    <script src="/src/js/main.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const skill = urlParams.get("skill");
+
+        const pageTitle = document.getElementById("page-title");
+        const pageSubtitle = document.getElementById("page-subtitle");
+        const softwareLogo = document.getElementById("software-logo");
+        const gallery = document.getElementById("gallery-container");
+
+        const DATA = {
+          blynk: {
+            title: "Hasil Karya Blynk",
+            subtitle: "Dashboard Monitoring IoT",
+            logo: "/src/assets/image/logo%20blynk.png",
+            type: "images",
+            items: [
+              "/src/assets/Hasil%20Keahlian%20Skill/Blynk/Monitoring%20Sensor%20DHT22.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Blynk/Monitoring%20Sensor%20DS18B20.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Blynk/Monitoring%20Sensor%20Level%20Air%20Non%20Contact.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Blynk/Monitoring%20Sensor%20PH%20Air.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Blynk/Monitoring%20Sensor%20Soil%20Moisture.jpeg",
+            ],
+          },
+          canva: {
+            title: "Hasil Karya Canva",
+            subtitle: "Kumpulan desain grafis & presentasi",
+            logo: "/src/assets/image/Logo%20Canva.jpg",
+            type: "images",
+            items: [
+              "/src/assets/Hasil%20Keahlian%20Skill/Canva/hme%20polines.png",
+              "/src/assets/Hasil%20Keahlian%20Skill/Canva/Merah%20dan%20Putih%20Ilustrasi%20Ucapan%20Hari%20Pahlawan%20Nasional%20Instagram%20Post%20(4).png",
+              "/src/assets/Hasil%20Keahlian%20Skill/Canva/Nastar.png",
+              "/src/assets/Hasil%20Keahlian%20Skill/Canva/Sertifikat%20Dikser.png",
+              "/src/assets/Hasil%20Keahlian%20Skill/Canva/Template%20PLN.jpg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Canva/_Logo%20Ponpes%20Abdimas.png",
+            ],
+          },
+          capcut: {
+            title: "Hasil Karya CapCut",
+            subtitle: "Kumpulan editing video konten kreatif",
+            logo: "/src/assets/image/Logo%20Capcut.png",
+            type: "videos",
+            items: [
+              {
+                src: "/src/assets/Hasil%20Keahlian%20Skill/Capcut/Jalan%20Sehat%20ULP%20AMBARAWA%2021%20Nov%202025.mp4",
+                label: "Jalan Sehat ULP Ambarawa",
+              },
+              {
+                src: "/src/assets/Hasil%20Keahlian%20Skill/Capcut/Konten%20Reels%20Promo%20Tambah%20Daya%20Bulan%20November.mp4",
+                label: "Promo Tambah Daya Nov",
+              },
+              {
+                src: "/src/assets/Hasil%20Keahlian%20Skill/Capcut/Tambah%20Daya%20Hari%20Pahlawan%20ULP%20Ambarawa.mp4",
+                label: "Tambah Daya Hari Pahlawan",
+              },
+            ],
+          },
+          coreldraw: {
+            title: "Hasil Karya CorelDRAW",
+            subtitle: "Kumpulan desain vektor & layouting",
+            logo: "/src/assets/image/Logo%20corel%20Draw.png",
+            type: "images",
+            items: [
+              "/src/assets/Hasil%20Keahlian%20Skill/Corel%20Draw/Desain%20Layout%20Trainer%20Kit%20Box%20Instrumentasi.pdf",
+              "/src/assets/Hasil%20Keahlian%20Skill/Corel%20Draw/Gambar%20Rangkaian%20Sistem%20Trainer%20Kit%20Box.pdf",
+            ],
+          },
+          easyeda: {
+            title: "Hasil Karya EasyEDA",
+            subtitle: "Desain PCB & Schematic Rangkaian",
+            logo: "/src/assets/image/Logo%20EasyEDA.png",
+            type: "images",
+            items: [
+              "/src/assets/Hasil%20Keahlian%20Skill/EasyEda/PCB%20Modul%20Sensor%20PH%20NPK%20Tanah.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/EasyEda/PCB%20Modul%20Sensor%20Suhu%20dan%20Kelembapan%20Tanah.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/EasyEda/PCB%20Modul%20SMPS.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/EasyEda/PCB%20Power%20Logger.jpeg",
+            ],
+          },
+          flutter: {
+            title: "Hasil Karya Flutter",
+            subtitle: "Tampilan UI & Aplikasi Mobile",
+            logo: "/src/assets/image/Logo%20Flutter.png",
+            type: "images",
+            items: [
+              "/src/assets/Hasil%20Keahlian%20Skill/Flutter/Aplikasi%20Smart%20Farming.jpeg",
+            ],
+          },
+          proteus: {
+            title: "Hasil Karya Proteus",
+            subtitle: "Simulasi Rangkaian & Schematic",
+            logo: "/src/assets/image/Logo%20Proteus%208.jpg",
+            type: "images",
+            items: [
+              "/src/assets/Hasil%20Keahlian%20Skill/Proteus/Rangkaian%20Detektor%20Cahaya.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Proteus/Rangkaian%20Posisi%20dan%20Kecepatan%20Motor.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Proteus/Schematic%20Rangkaian%20MAX31855.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Proteus/Schematic%20Rangkaian%20RCV.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Proteus/Schematic%20Rangkaian%20Sensor%20Hujan.jpeg",
+              "/src/assets/Hasil%20Keahlian%20Skill/Proteus/Schematic%20Rangkaian%20Window%20Komsuhu.jpeg",
+            ],
+          },
+        };
+
+        const data = DATA[skill];
+
+        if (data) {
+          document.title = data.title + " - Daffa Raihansyah";
+          pageTitle.textContent = data.title;
+          pageSubtitle.textContent = data.subtitle;
+          softwareLogo.src = data.logo;
+          softwareLogo.classList.remove("hidden");
+
+          if (data.type === "images") {
+            gallery.innerHTML = data.items
+              .map((src, i) => {
+                const isPdf = src.toLowerCase().endsWith(".pdf");
+                const mediaHtml = isPdf
+                  ? `<iframe src="${src}#view=FitH&toolbar=0&navpanes=0&scrollbar=0" class="w-full h-full border-0 pointer-events-none" scrolling="no"></iframe>`
+                  : `<img src="${src}" alt="Karya" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">`;
+
+                return `
+                        <div class="gallery-item group relative rounded-2xl overflow-hidden bg-slate-900 border border-white/5 cursor-pointer shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-500/30 transition-all duration-300" style="animation-delay: ${i * 50}ms">
+                            <div class="aspect-square w-full overflow-hidden bg-slate-800/50 flex items-center justify-center">
+                                ${mediaHtml}
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <a href="${src}" target="_blank" class="px-4 py-2 bg-cyan-500 text-white text-sm font-semibold rounded-lg shadow-lg hover:bg-cyan-400 w-full text-center transition-colors">
+                                    Lihat Penuh <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+              })
+              .join("");
+          } else if (data.type === "videos") {
+            gallery.innerHTML = data.items
+              .map(
+                (v, i) => `
+                        <div class="gallery-item group relative rounded-2xl overflow-hidden bg-slate-900 border border-white/5 shadow-lg hover:shadow-cyan-500/20 transition-all duration-300" style="animation-delay: ${i * 50}ms">
+                            <video src="${v.src}" class="w-full aspect-video object-cover" controls preload="metadata"></video>
+                            <div class="p-4 border-t border-white/5">
+                                <h3 class="text-white font-semibold text-sm truncate">${v.label}</h3>
+                            </div>
+                        </div>
+                    `,
+              )
+              .join("");
+          }
+        } else {
+          pageTitle.textContent = "Data tidak ditemukan";
+          pageSubtitle.textContent = "Silakan kembali ke halaman keahlian.";
+        }
+      });
+    </script>
+  </body>
+</html>

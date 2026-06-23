@@ -1,0 +1,1428 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daffa Raihansyah - Portofolio Elektronika & IoT</title>
+    <!-- Google Fonts: Inter & Outfit (for attractive splash text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS (Vite) -->
+    <link rel="stylesheet" href="/src/style.css" />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Custom Animations for Moving Light Background */
+      @keyframes blob {
+        0% {
+          transform: translate(0px, 0px) scale(1);
+        }
+
+        33% {
+          transform: translate(30px, -50px) scale(1.1);
+        }
+
+        66% {
+          transform: translate(-20px, 20px) scale(0.9);
+        }
+
+        100% {
+          transform: translate(0px, 0px) scale(1);
+        }
+      }
+
+      .animate-blob {
+        animation: blob 7s infinite alternate ease-in-out;
+      }
+
+      .animation-delay-2000 {
+        animation-delay: 2s;
+      }
+
+      .animation-delay-4000 {
+        animation-delay: 4s;
+      }
+
+      @keyframes fadeInSlow {
+        0% {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .animate-fade-in-slow {
+        animation: fadeInSlow 4s ease-in-out forwards;
+      }
+
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%) skewX(-20deg);
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        30% {
+          transform: translateX(300%) skewX(-20deg);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(300%) skewX(-20deg);
+          opacity: 0;
+        }
+      }
+      .animate-shine {
+        animation: shine 5s infinite;
+      }
+      .delay-100 {
+        animation-delay: 100ms;
+      }
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      .delay-300 {
+        animation-delay: 300ms;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-slate-950 text-slate-200 font-['Inter'] antialiased selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden overflow-y-hidden relative"
+  >
+    <!-- Splash Screen -->
+    <div
+      id="splash-screen"
+      class="fixed inset-0 z-[100] bg-slate-50 transition-all duration-1000 ease-in-out overflow-hidden"
+    >
+      <!-- Efek Latar Belakang: Grid dan Cahaya Lembut Bergerak -->
+      <div class="absolute inset-0 pointer-events-none z-0">
+        <!-- Grid Lines (Fading from left to right) -->
+        <div
+          class="absolute inset-0 opacity-15"
+          style="
+            background-image:
+              linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px
+              ),
+              linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px
+              );
+            background-size: 50px 50px;
+            mask-image: linear-gradient(to right, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(
+              to right,
+              black 50%,
+              transparent 100%
+            );
+          "
+        ></div>
+        <!-- Cahaya Lembut Bergerak (Pastel Glow) -->
+        <div
+          class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-cyan-200/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"
+        ></div>
+        <div
+          class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-200/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000"
+        ></div>
+      </div>
+
+      <!-- Konten Utama (Centered Logo) -->
+      <div
+        class="animate-fade-in-slow relative w-full h-full flex items-center justify-center z-10 max-w-7xl mx-auto px-6"
+      >
+        <h1
+          class="font-['Inter'] text-6xl md:text-8xl lg:text-[9rem] font-black text-slate-900 tracking-tight drop-shadow-sm"
+        >
+          Portfolio<span class="text-cyan-500">.</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Background Music -->
+
+    <!-- Moving Light Background (Cahaya Berjalan) -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+      <div
+        class="absolute top-0 left-[10%] w-[500px] h-[500px] bg-cyan-500/20 rounded-full mix-blend-screen filter blur-[120px] animate-blob"
+      ></div>
+      <div
+        class="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-blue-600/20 rounded-full mix-blend-screen filter blur-[120px] animate-blob animation-delay-2000"
+      ></div>
+      <div
+        class="absolute bottom-[-10%] left-[30%] w-[700px] h-[700px] bg-emerald-500/10 rounded-full mix-blend-screen filter blur-[120px] animate-blob animation-delay-4000"
+      ></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 bg-slate-950/50 backdrop-blur-xl border-b border-white/5 transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center gap-4">
+            <a
+              href="index.html"
+              class="text-white text-2xl font-bold tracking-wider hover:text-cyan-400 transition-colors drop-shadow-md"
+            >
+              Portfolio<span class="text-cyan-400">.</span>
+            </a>
+          </div>
+          <div class="hidden md:flex items-center">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="index.html"
+                class="text-white font-semibold px-3 py-2 rounded-md text-sm transition-colors"
+                >Beranda</a
+              >
+              <a
+                href="about.html"
+                class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Tentang</a
+              >
+              <a
+                href="skills.html"
+                class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Keahlian</a
+              >
+              <a
+                href="projects.html"
+                class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Proyek</a
+              >
+              <a
+                href="contact.html"
+                class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Kontak</a
+              >
+            </div>
+            <button
+              id="theme-toggle-desktop"
+              class="ml-6 text-slate-300 hover:text-cyan-400 transition-colors text-xl"
+            >
+              <i class="fa-solid fa-toggle-off text-2xl"></i>
+            </button>
+          </div>
+          <!-- Mobile menu button -->
+          <div class="-mr-2 flex md:hidden items-center gap-4">
+            <button
+              id="theme-toggle-mobile"
+              class="text-slate-300 hover:text-cyan-400 transition-colors text-xl"
+            >
+              <i class="fa-solid fa-toggle-off text-2xl"></i>
+            </button>
+            <button
+              id="mobile-menu-button"
+              type="button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                id="menu-icon"
+                class="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+              <svg
+                id="close-icon"
+                class="hidden h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu Panel -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-slate-900 border-b border-white/5"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="index.html"
+            class="text-white font-semibold block px-3 py-2 rounded-md text-base"
+            >Beranda</a
+          >
+          <a
+            href="about.html"
+            class="text-slate-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Tentang</a
+          >
+          <a
+            href="skills.html"
+            class="text-slate-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Keahlian</a
+          >
+          <a
+            href="projects.html"
+            class="text-slate-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Proyek</a
+          >
+          <a
+            href="contact.html"
+            class="text-slate-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Kontak</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content (Relative so it sits above fixed background) -->
+    <main class="relative z-10 w-full">
+      <!-- Hero Section -->
+      <section
+        class="pt-32 pb-16 px-8 sm:px-12 lg:px-16 max-w-6xl mx-auto min-h-[90vh] flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative z-10"
+      >
+        <!-- Sisi Kiri: Teks -->
+        <div
+          class="w-full md:w-1/2 flex flex-col justify-center items-center text-center mt-10 md:mt-0 z-20"
+        >
+          <p
+            class="text-cyan-400 tracking-[0.2em] text-xs md:text-sm font-bold uppercase mb-3"
+          >
+            Hello, saya
+          </p>
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight tracking-tight drop-shadow-lg font-['Outfit']"
+          >
+            Muhammad Daffa
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"
+              >Raihansyah</span
+            >
+          </h1>
+          <h2 class="text-lg md:text-xl text-slate-300 font-semibold mb-6">
+            Desainer Grafis dan Electronic Engineering
+          </h2>
+          <p
+            class="text-sm md:text-base text-slate-400 mb-10 max-w-md leading-relaxed"
+          >
+            Saya dapat menggunakan beberapa software editing, pemrograman, dan
+            elektronika
+          </p>
+
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a
+              href="contact.html"
+              class="px-8 py-4 rounded-full bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-colors shadow-[0_0_20px_rgba(34,211,238,0.4)] flex items-center gap-2"
+            >
+              Hubungi saya <i class="fa-solid fa-paper-plane"></i>
+            </a>
+            <a
+              href="/src/assets/cv/Curriculum Vitae Muhammad Daffa Raihansyah.pdf"
+              download
+              class="px-8 py-4 rounded-full bg-transparent border border-white/20 text-white font-bold hover:bg-white/10 transition-colors flex items-center gap-2"
+            >
+              Unduh CV <i class="fa-solid fa-download"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sisi Kanan: Slideshow Foto Besar -->
+        <div
+          class="w-full md:w-1/2 h-[50vh] md:h-[80vh] relative z-10 flex items-center justify-center md:justify-end"
+        >
+          <div id="hero-slideshow" class="relative w-full h-full max-w-md">
+            <!-- Slides -->
+            <img
+              src="/src/assets/image/Foto%20Daffa%202.jpeg"
+              class="hero-slide absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl transition-opacity duration-1000 opacity-100"
+              style="
+                -webkit-mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+                mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+              "
+            />
+            <img
+              src="/src/assets/image/Foto%20Daffa%203.jpeg"
+              class="hero-slide absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl transition-opacity duration-1000 opacity-0"
+              style="
+                -webkit-mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+                mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+              "
+            />
+            <img
+              src="/src/assets/image/Foto%20Daffa%204.jpeg"
+              class="hero-slide absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl transition-opacity duration-1000 opacity-0"
+              style="
+                -webkit-mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+                mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+              "
+            />
+            <img
+              src="/src/assets/image/Foto%20Daffa%205.jpeg"
+              class="hero-slide absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl transition-opacity duration-1000 opacity-0"
+              style="
+                -webkit-mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+                mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+              "
+            />
+            <img
+              src="/src/assets/image/Foto%20Daffa%206.jpeg"
+              class="hero-slide absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl transition-opacity duration-1000 opacity-0"
+              style="
+                -webkit-mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+                mask-image: linear-gradient(
+                  to bottom,
+                  black 80%,
+                  transparent 100%
+                );
+              "
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section
+        id="skills"
+        class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10"
+      >
+        <div class="text-center mb-12 group">
+          <h2
+            class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight transition-all duration-500 group-hover:scale-105 group-hover:text-cyan-100 cursor-default inline-block"
+          >
+            Software
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"
+              >Keahlian Saya</span
+            >
+          </h2>
+          <div
+            class="w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mt-6 mx-auto rounded-full transition-all duration-500 group-hover:w-32"
+          ></div>
+        </div>
+
+        <!-- Dock Container (macOS style) -->
+        <div
+          id="skills-dock"
+          class="reveal-scroll opacity-0 translate-y-10 transition-all duration-1000 grid grid-cols-4 md:grid-cols-7 justify-items-center gap-y-10 gap-x-4 md:gap-x-6 px-6 bg-slate-900/60 backdrop-blur-md rounded-3xl border border-white/10 mx-auto w-full max-w-5xl shadow-2xl py-10"
+        >
+          <!-- Canva -->
+          <a
+            href="portfolio.html?skill=canva"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >Canva</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                  fill="white"
+                  opacity="0.3"
+                />
+                <path d="M9 9h2l1 3 1-3h2l-2 6h-2L9 9z" fill="white" />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-cyan-400 transition-colors"
+              >Canva</span
+            >
+          </a>
+
+          <!-- CapCut -->
+          <a
+            href="portfolio.html?skill=capcut"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >CapCut</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-slate-800 border border-white/20 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="3" y="6" width="12" height="12" rx="2" opacity="0.9" />
+                <polygon points="17,8 22,12 17,16" opacity="0.9" />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-white transition-colors"
+              >CapCut</span
+            >
+          </a>
+
+          <!-- CorelDRAW -->
+          <a
+            href="portfolio.html?skill=corel"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >CorelDRAW</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-green-400 to-emerald-600 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(34,197,94,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2" />
+                <circle cx="12" cy="12" r="3.5" fill="white" />
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-green-400 transition-colors"
+              >CorelDRAW</span
+            >
+          </a>
+
+          <!-- Premiere Pro -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >Premiere Pro</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-violet-600 to-purple-800 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(139,92,246,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="3"
+                  y="3"
+                  width="8"
+                  height="10"
+                  rx="1.5"
+                  opacity="0.9"
+                />
+                <path
+                  d="M13 5h4c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2h-4V5z"
+                  opacity="0.7"
+                />
+                <path
+                  d="M3 15h7M3 18h5"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-purple-400 transition-colors"
+              >Premiere Pro</span
+            >
+          </a>
+
+          <!-- EasyEDA -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >EasyEDA</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(59,130,246,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6h16M4 12h16M4 18h16"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <circle cx="8" cy="12" r="2" fill="white" />
+                <circle cx="16" cy="12" r="2" fill="white" />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-blue-400 transition-colors"
+              >EasyEDA</span
+            >
+          </a>
+
+          <!-- Blynk -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >Blynk</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-green-400 to-emerald-600 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(52,211,153,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <path
+                  d="M12 6v6l4 2"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-emerald-400 transition-colors"
+              >Blynk</span
+            >
+          </a>
+
+          <!-- Photoshop -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >Photoshop</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-[#001E36] border border-[#31A8FF] shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(49,168,255,0.6)]"
+            >
+              <span
+                class="text-[#31A8FF] font-bold text-xl md:text-2xl font-['Inter']"
+                >Ps</span
+              >
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-[#31A8FF] transition-colors"
+              >Photoshop</span
+            >
+          </a>
+
+          <!-- NB Designer -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >NB Designer</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(249,115,22,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 5h18v14H3V5zm2 2v10h14V7H5zm4 2h6v2H9V9zm0 4h4v2H9v-2z"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-orange-400 transition-colors"
+              >NB Designer</span
+            >
+          </a>
+
+          <!-- Word -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >Word</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-blue-500 to-blue-800 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(59,130,246,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"
+                  opacity="0.85"
+                />
+                <path
+                  d="M13 3v6h6"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="1"
+                />
+                <path
+                  d="M7 13l1.5 4 1.5-3 1.5 3 1.5-4"
+                  stroke="white"
+                  stroke-width="1.2"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.5"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-blue-400 transition-colors"
+              >Word</span
+            >
+          </a>
+
+          <!-- Excel -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >Excel</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-green-500 to-green-800 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(34,197,94,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"
+                  opacity="0.85"
+                />
+                <path
+                  d="M13 3v6h6"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="1"
+                />
+                <path
+                  d="M7 13l2.5 3.5M9.5 13L7 16.5M12 13h4M12 15h4M12 17h3"
+                  stroke="white"
+                  stroke-width="1"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.5"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-green-400 transition-colors"
+              >Excel</span
+            >
+          </a>
+
+          <!-- PowerPoint -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >PowerPoint</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(249,115,22,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"
+                  opacity="0.85"
+                />
+                <path
+                  d="M13 3v6h6"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="1"
+                />
+                <rect
+                  x="7"
+                  y="12"
+                  width="5"
+                  height="6"
+                  rx="1"
+                  opacity="0.5"
+                  fill="white"
+                />
+                <path
+                  d="M13 14h3M13 16h2"
+                  stroke="white"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  opacity="0.5"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-orange-400 transition-colors"
+              >PowerPoint</span
+            >
+          </a>
+
+          <!-- Proteus -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >Proteus</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-700 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(6,182,212,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 6h14M5 10h8M5 14h5"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <circle cx="17" cy="14" r="3" stroke="white" stroke-width="2" />
+                <path
+                  d="M17 17v3M14 20h6"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-cyan-400 transition-colors"
+              >Proteus</span
+            >
+          </a>
+
+          <!-- Arduino IDE -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >Arduino IDE</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-teal-400 to-cyan-700 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(20,184,166,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  stroke="white"
+                  stroke-width="2"
+                  fill="white"
+                  opacity="0.12"
+                />
+                <path
+                  d="M7 12h4M13 12h4"
+                  stroke="white"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M9 9.5v5M15 9.5v5"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-teal-400 transition-colors"
+              >Arduino IDE</span
+            >
+          </a>
+
+          <!-- VS Code -->
+          <a
+            href="skills.html"
+            class="group relative flex flex-col items-center gap-2 cursor-pointer"
+          >
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-slate-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg z-10"
+              >VS Code</span
+            >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 group-hover:-translate-y-4 group-hover:scale-125 transition-all duration-200 ease-out rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-700 shadow-xl flex items-center justify-center origin-bottom group-hover:shadow-[0_0_25px_rgba(99,102,241,0.6)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="w-8 h-8 md:w-9 md:h-9 transition-all duration-200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.5 3L7 13.5l-4.5-3.5L1 11.5l5.5 4.5L1 20.5 2.5 22l5.5-4.5L18 22l4.5-1.5v-17L16.5 3z"
+                  fill="white"
+                  opacity="0.9"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-slate-400 text-xs font-semibold group-hover:text-indigo-400 transition-colors"
+              >VS Code</span
+            >
+          </a>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href="skills.html"
+            class="inline-flex items-center gap-2 text-cyan-400 font-bold hover:text-cyan-300 hover:gap-3 transition-all px-6 py-2 bg-white/5 rounded-full border border-white/10 hover:bg-white/10"
+          >
+            Lihat detail skill <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <style>
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee {
+          display: flex;
+          width: max-content;
+          animation: marquee 40s linear infinite;
+        }
+        .animate-marquee:hover {
+          animation-play-state: paused;
+        }
+      </style>
+      <section id="projects" class="py-16 relative z-10 w-full overflow-hidden">
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between mb-10"
+        >
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">
+              Proyek Unggulan
+            </h2>
+            <p class="text-slate-400">Karya yang pernah saya buat</p>
+          </div>
+          <a
+            href="projects.html"
+            class="hidden md:inline-flex items-center gap-2 text-cyan-400 font-bold hover:text-cyan-300 transition-colors"
+          >
+            Lihat semua proyek <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Marquee Slider -->
+        <div class="w-full relative">
+          <!-- Fade edges -->
+          <div
+            class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"
+          ></div>
+          <div
+            class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"
+          ></div>
+
+          <div class="animate-marquee gap-6 px-4">
+            <!-- Item 1 -->
+            <a
+              href="projects.html"
+              class="w-[300px] md:w-[450px] aspect-video relative rounded-3xl overflow-hidden group block shadow-2xl shrink-0 cursor-pointer border border-white/10 hover:border-cyan-400 transition-colors"
+            >
+              <img
+                src="/src/assets/Proyek/Monitoring%20Trafo%203%20Fasa.jpeg"
+                alt="Proyek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end p-6"
+              >
+                <h3 class="text-white font-bold text-xl drop-shadow-md">
+                  Monitoring Trafo 3 Fasa
+                </h3>
+                <p class="text-cyan-400 text-sm font-semibold mt-1">2025</p>
+              </div>
+            </a>
+            <!-- Item 2 -->
+            <a
+              href="projects.html"
+              class="w-[300px] md:w-[450px] aspect-video relative rounded-3xl overflow-hidden group block shadow-2xl shrink-0 cursor-pointer border border-white/10 hover:border-cyan-400 transition-colors"
+            >
+              <img
+                src="/src/assets/Proyek/Kotak%20Amal%20Pintar.jpeg"
+                alt="Proyek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end p-6"
+              >
+                <h3 class="text-white font-bold text-xl drop-shadow-md">
+                  Kotak Amal Pintar
+                </h3>
+                <p class="text-cyan-400 text-sm font-semibold mt-1">2025</p>
+              </div>
+            </a>
+            <!-- Item 3 -->
+            <a
+              href="projects.html"
+              class="w-[300px] md:w-[450px] aspect-video relative rounded-3xl overflow-hidden group block shadow-2xl shrink-0 cursor-pointer border border-white/10 hover:border-cyan-400 transition-colors"
+            >
+              <img
+                src="/src/assets/Proyek/Robot%20Laba%20-%20Laba%20dengan%20Kontrol%20Aplikasi.jpeg"
+                alt="Proyek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end p-6"
+              >
+                <h3 class="text-white font-bold text-xl drop-shadow-md">
+                  Robot Laba-Laba
+                </h3>
+                <p class="text-cyan-400 text-sm font-semibold mt-1">2024</p>
+              </div>
+            </a>
+            <!-- Item 4 -->
+            <a
+              href="projects.html"
+              class="w-[300px] md:w-[450px] aspect-video relative rounded-3xl overflow-hidden group block shadow-2xl shrink-0 cursor-pointer border border-white/10 hover:border-cyan-400 transition-colors"
+            >
+              <img
+                src="/src/assets/Proyek/Sistem%20Pintu%20Otomatis%20Berbasis%20Blynk.jpeg"
+                alt="Proyek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end p-6"
+              >
+                <h3 class="text-white font-bold text-xl drop-shadow-md">
+                  Pintu Otomatis
+                </h3>
+                <p class="text-cyan-400 text-sm font-semibold mt-1">2026</p>
+              </div>
+            </a>
+
+            <!-- DUPLICATE FOR INFINITE SCROLL -->
+            <a
+              href="projects.html"
+              class="w-[300px] md:w-[450px] aspect-video relative rounded-3xl overflow-hidden group block shadow-2xl shrink-0 cursor-pointer border border-white/10 hover:border-cyan-400 transition-colors"
+            >
+              <img
+                src="/src/assets/Proyek/Monitoring%20Trafo%203%20Fasa.jpeg"
+                alt="Proyek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end p-6"
+              >
+                <h3 class="text-white font-bold text-xl drop-shadow-md">
+                  Monitoring Trafo 3 Fasa
+                </h3>
+                <p class="text-cyan-400 text-sm font-semibold mt-1">2025</p>
+              </div>
+            </a>
+            <a
+              href="projects.html"
+              class="w-[300px] md:w-[450px] aspect-video relative rounded-3xl overflow-hidden group block shadow-2xl shrink-0 cursor-pointer border border-white/10 hover:border-cyan-400 transition-colors"
+            >
+              <img
+                src="/src/assets/Proyek/Kotak%20Amal%20Pintar.jpeg"
+                alt="Proyek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end p-6"
+              >
+                <h3 class="text-white font-bold text-xl drop-shadow-md">
+                  Kotak Amal Pintar
+                </h3>
+                <p class="text-cyan-400 text-sm font-semibold mt-1">2025</p>
+              </div>
+            </a>
+            <a
+              href="projects.html"
+              class="w-[300px] md:w-[450px] aspect-video relative rounded-3xl overflow-hidden group block shadow-2xl shrink-0 cursor-pointer border border-white/10 hover:border-cyan-400 transition-colors"
+            >
+              <img
+                src="/src/assets/Proyek/Robot%20Laba%20-%20Laba%20dengan%20Kontrol%20Aplikasi.jpeg"
+                alt="Proyek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end p-6"
+              >
+                <h3 class="text-white font-bold text-xl drop-shadow-md">
+                  Robot Laba-Laba
+                </h3>
+                <p class="text-cyan-400 text-sm font-semibold mt-1">2024</p>
+              </div>
+            </a>
+            <a
+              href="projects.html"
+              class="w-[300px] md:w-[450px] aspect-video relative rounded-3xl overflow-hidden group block shadow-2xl shrink-0 cursor-pointer border border-white/10 hover:border-cyan-400 transition-colors"
+            >
+              <img
+                src="/src/assets/Proyek/Sistem%20Pintu%20Otomatis%20Berbasis%20Blynk.jpeg"
+                alt="Proyek"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end p-6"
+              >
+                <h3 class="text-white font-bold text-xl drop-shadow-md">
+                  Pintu Otomatis
+                </h3>
+                <p class="text-cyan-400 text-sm font-semibold mt-1">2026</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center md:hidden">
+          <a
+            href="projects.html"
+            class="inline-flex items-center gap-2 text-cyan-400 font-bold hover:text-cyan-300 hover:gap-3 transition-all px-6 py-2 bg-white/5 rounded-full border border-white/10 hover:bg-white/10"
+          >
+            Lihat semua proyek <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section
+        id="contact"
+        class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-20"
+      >
+        <h2
+          class="text-3xl font-bold text-white mb-8 border-b border-white/10 pb-4"
+        >
+          Ayo Terhubung
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Gmail -->
+          <a
+            href="mailto:mdaffaraihansyah01@gmail.com"
+            class="reveal-scroll opacity-0 translate-y-10 relative overflow-hidden bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-3xl p-6 hover:bg-slate-800/80 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(34,211,238,0.2)] flex items-center gap-4 group"
+          >
+            <div
+              class="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shine pointer-events-none"
+            ></div>
+            <div
+              class="w-12 h-12 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center shrink-0"
+            >
+              <i class="fa-solid fa-envelope text-xl"></i>
+            </div>
+            <div>
+              <p class="text-white font-bold text-sm">Email</p>
+              <p class="text-slate-400 text-xs truncate">Kirim Pesan</p>
+            </div>
+          </a>
+
+          <!-- WhatsApp -->
+          <a
+            href="https://wa.me/6281938130300"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reveal-scroll opacity-0 translate-y-10 relative overflow-hidden bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-3xl p-6 hover:bg-slate-800/80 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(34,211,238,0.2)] flex items-center gap-4 group"
+          >
+            <div
+              class="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shine delay-100 pointer-events-none"
+            ></div>
+            <div
+              class="w-12 h-12 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center shrink-0"
+            >
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+            </div>
+            <div>
+              <p class="text-white font-bold text-sm">WhatsApp</p>
+              <p class="text-slate-400 text-xs truncate">Chat Langsung</p>
+            </div>
+          </a>
+
+          <!-- Instagram -->
+          <a
+            href="https://www.instagram.com/daffaraihnsyh?igsh=MWJkbGh6d3V1N284cg=="
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reveal-scroll opacity-0 translate-y-10 relative overflow-hidden bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-3xl p-6 hover:bg-slate-800/80 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(34,211,238,0.2)] flex items-center gap-4 group"
+          >
+            <div
+              class="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shine delay-200 pointer-events-none"
+            ></div>
+            <div
+              class="w-12 h-12 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center shrink-0"
+            >
+              <i class="fa-brands fa-instagram text-xl"></i>
+            </div>
+            <div>
+              <p class="text-white font-bold text-sm">Instagram</p>
+              <p class="text-slate-400 text-xs truncate">Ikuti Saya</p>
+            </div>
+          </a>
+
+          <!-- Github -->
+          <a
+            href="https://github.com/Daffaraihnsyh"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reveal-scroll opacity-0 translate-y-10 relative overflow-hidden bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-3xl p-6 hover:bg-slate-800/80 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(34,211,238,0.2)] flex items-center gap-4 group"
+          >
+            <div
+              class="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shine delay-300 pointer-events-none"
+            ></div>
+            <div
+              class="w-12 h-12 rounded-full bg-slate-700/50 text-slate-300 flex items-center justify-center shrink-0"
+            >
+              <i class="fa-brands fa-github text-xl"></i>
+            </div>
+            <div>
+              <p class="text-white font-bold text-sm">GitHub</p>
+              <p class="text-slate-400 text-xs truncate">Lihat Kode</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a
+            href="contact.html"
+            class="inline-block px-8 py-3 rounded-xl bg-slate-800/80 backdrop-blur-md text-white font-semibold hover:bg-slate-700 transition-colors border border-white/10 shadow-lg"
+          >
+            Lihat Halaman Kontak Lengkap
+          </a>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t border-white/5 py-8 text-center">
+        <p class="text-slate-500 text-sm">
+          © 2026 Daffa Raihansyah. Portofolio Hardware & IoT.
+        </p>
+      </footer>
+    </main>
+
+    <!-- Main Script -->
+    <script src="/src/js/main.js"></script>
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80, // Account for fixed navbar height
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Splash Screen Auto Transition & Audio Logic
+      const splashScreen = document.getElementById("splash-screen");
+      const body = document.body;
+      // Splash Screen Auto Transition (Tampil Sekali Saja)
+      if (sessionStorage.getItem("splashShown") === "true") {
+        // Jika sudah pernah lihat, sembunyikan langsung
+        splashScreen.style.display = "none";
+        body.classList.remove("overflow-y-hidden");
+      } else {
+        // Tunggu 5 detik untuk animasi fade-in selesai, lalu geser ke atas dan memudar
+        setTimeout(() => {
+          // Tambahkan kelas Tailwind untuk geser ke atas (-translate-y-full) dan memudar (opacity-0)
+          splashScreen.classList.add("-translate-y-full", "opacity-0");
+
+          // Tunggu transisi 1 detik lalu buang dari layar
+          setTimeout(() => {
+            splashScreen.style.display = "none";
+            body.classList.remove("overflow-y-hidden");
+            sessionStorage.setItem("splashShown", "true");
+          }, 1000);
+        }, 5000);
+      }
+
+      // --- Hero Slideshow Logic ---
+      const slides = document.querySelectorAll(".hero-slide");
+      let currentSlide = 0;
+      if (slides.length > 0) {
+        setInterval(() => {
+          slides[currentSlide].classList.replace("opacity-100", "opacity-0");
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.replace("opacity-0", "opacity-100");
+        }, 3000);
+      }
+
+      // --- Cursor Glow Logic ---
+      const cursorGlow = document.getElementById("cursor-glow");
+
+      // Mouse support
+      document.addEventListener("mousemove", (e) => {
+        cursorGlow.style.opacity = "1";
+        cursorGlow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+      });
+      document.addEventListener("mouseleave", () => {
+        cursorGlow.style.opacity = "0";
+      });
+
+      // Touch support (HP)
+      document.addEventListener(
+        "touchmove",
+        (e) => {
+          if (e.touches.length > 0) {
+            cursorGlow.style.opacity = "1";
+            cursorGlow.style.transform = `translate(${e.touches[0].clientX}px, ${e.touches[0].clientY}px) translate(-50%, -50%)`;
+          }
+        },
+        { passive: true },
+      );
+      document.addEventListener("touchend", () => {
+        cursorGlow.style.opacity = "0";
+      });
+
+      // --- Scroll Animation (Bidirectional) ---
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove("opacity-0", "translate-y-10");
+              entry.target.classList.add("opacity-100", "translate-y-0");
+            } else {
+              entry.target.classList.remove("opacity-100", "translate-y-0");
+              entry.target.classList.add("opacity-0", "translate-y-10");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document.querySelectorAll(".reveal-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+
+    <!-- Cursor Glow Element -->
+    <div
+      id="cursor-glow"
+      class="fixed top-0 left-0 w-[400px] h-[400px] bg-cyan-300/40 rounded-full pointer-events-none mix-blend-screen filter blur-[80px] z-[9999] opacity-0 transition-opacity duration-300"
+      style="transform: translate(-50%, -50%)"
+    ></div>
+  </body>
+</html>

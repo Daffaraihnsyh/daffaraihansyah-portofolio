@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+/* Light Mode Global Styles */
+html.light-mode {
+  filter: invert(1) hue-rotate(180deg);
+  background-color: #ffffff;
+}
+
+html.light-mode img,
+html.light-mode video,
+html.light-mode canvas,
+html.light-mode iframe,
+html.light-mode .dock-item img,
+html.light-mode .hero-slide {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Smooth background transition */
+html {
+  transition: filter 0.3s ease, background-color 0.3s ease;
+}

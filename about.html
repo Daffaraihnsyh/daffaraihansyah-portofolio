@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Saya - Daffa Raihansyah</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS (Vite) -->
+    <link rel="stylesheet" href="/src/style.css" />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Bidirectional scroll animation using CSS transitions */
+      .animate-slide-in {
+        opacity: 0;
+        transform: translateX(-48px);
+        transition:
+          opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* Visible state: slide in from left */
+      .animate-slide-in.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Exit state: slide out to the right (when scrolling up) */
+      .animate-slide-in.exit-right {
+        opacity: 0;
+        transform: translateX(48px);
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease;
+      }
+
+      /* Animated ambient gradient orbs */
+      @keyframes driftA {
+        0% {
+          transform: translate(0px, 0px) scale(1);
+        }
+        33% {
+          transform: translate(60px, -80px) scale(1.15);
+        }
+        66% {
+          transform: translate(-40px, 50px) scale(0.9);
+        }
+        100% {
+          transform: translate(0px, 0px) scale(1);
+        }
+      }
+      @keyframes driftB {
+        0% {
+          transform: translate(0px, 0px) scale(1);
+        }
+        33% {
+          transform: translate(-70px, 60px) scale(1.2);
+        }
+        66% {
+          transform: translate(50px, -40px) scale(0.85);
+        }
+        100% {
+          transform: translate(0px, 0px) scale(1);
+        }
+      }
+      @keyframes driftC {
+        0% {
+          transform: translate(0px, 0px) scale(1);
+        }
+        50% {
+          transform: translate(40px, 80px) scale(1.1);
+        }
+        100% {
+          transform: translate(0px, 0px) scale(1);
+        }
+      }
+
+      .orb-a {
+        animation: driftA 12s ease-in-out infinite alternate;
+      }
+      .orb-b {
+        animation: driftB 9s ease-in-out infinite alternate;
+      }
+      .orb-c {
+        animation: driftC 15s ease-in-out infinite alternate;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-950 text-slate-200 font-['Inter'] antialiased selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen flex flex-col relative overflow-x-hidden"
+  >
+    <!-- Background Music -->
+
+    <!-- Animated Gradient Background Orbs -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+      <div
+        class="orb-a absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[120px] mix-blend-screen"
+      ></div>
+      <div
+        class="orb-b absolute top-[40%] right-[5%] w-[600px] h-[600px] rounded-full bg-blue-600/10 blur-[140px] mix-blend-screen"
+      ></div>
+      <div
+        class="orb-c absolute bottom-[10%] left-[30%] w-[400px] h-[400px] rounded-full bg-violet-600/10 blur-[120px] mix-blend-screen"
+      ></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-lg border-b border-white/5 transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center gap-4">
+            <a
+              href="javascript:history.back()"
+              class="text-slate-400 hover:text-white transition-colors"
+              title="Kembali"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <a
+              href="index.html"
+              class="text-white text-2xl font-bold tracking-wider hover:text-cyan-400 transition-colors drop-shadow-md"
+            >
+              Portfolio<span class="text-cyan-400">.</span>
+            </a>
+          </div>
+          <div class="hidden md:flex items-center">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="index.html"
+                class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Beranda</a
+              >
+              <a
+                href="about.html"
+                class="text-white font-semibold px-3 py-2 rounded-md text-sm transition-colors"
+                >Tentang</a
+              >
+              <a
+                href="skills.html"
+                class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Keahlian</a
+              >
+              <a
+                href="projects.html"
+                class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Proyek</a
+              >
+              <a
+                href="contact.html"
+                class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Kontak</a
+              >
+            </div>
+            <button
+              id="theme-toggle-desktop"
+              class="ml-6 text-slate-300 hover:text-cyan-400 transition-colors text-xl"
+            >
+              <i class="fa-solid fa-toggle-off text-2xl"></i>
+            </button>
+          </div>
+          <!-- Mobile menu button -->
+          <div class="-mr-2 flex md:hidden items-center gap-4">
+            <button
+              id="theme-toggle-mobile"
+              class="text-slate-300 hover:text-cyan-400 transition-colors text-xl"
+            >
+              <i class="fa-solid fa-toggle-off text-2xl"></i>
+            </button>
+            <button
+              id="mobile-menu-button"
+              type="button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                id="menu-icon"
+                class="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+              <svg
+                id="close-icon"
+                class="hidden h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu Panel -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-slate-900 border-b border-white/5"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="index.html"
+            class="text-slate-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Beranda</a
+          >
+          <a
+            href="about.html"
+            class="text-white font-semibold block px-3 py-2 rounded-md text-base"
+            >Tentang</a
+          >
+          <a
+            href="skills.html"
+            class="text-slate-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Keahlian</a
+          >
+          <a
+            href="projects.html"
+            class="text-slate-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Proyek</a
+          >
+          <a
+            href="contact.html"
+            class="text-slate-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >Kontak</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main
+      class="flex-grow pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full"
+    >
+      <!-- ===== Tentang Section ===== -->
+      <section class="mb-10">
+        <div class="mb-1 animate-slide-in">
+          <h1 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-user text-slate-400 text-lg"></i> Tentang
+          </h1>
+          <p class="text-sm text-slate-400 mt-0.5">
+            Perkenalan singkat tentang siapa saya.
+          </p>
+        </div>
+        <hr
+          class="border-white/10 mt-3 mb-5 animate-slide-in"
+          style="transition-delay: 50ms"
+        />
+        <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
+          <p class="animate-slide-in" style="transition-delay: 100ms">
+            Terima kasih banyak telah meluangkan waktu untuk mengunjungi
+            portofolio saya.
+          </p>
+          <p class="animate-slide-in" style="transition-delay: 150ms">
+            Saya adalah lulusan Multimedia dan Teknik Elektronika, kombinasi
+            latar belakang yang memberikan saya perspektif unik dalam dunia
+            digital. Saya memiliki keahlian dalam editing kreatif, mulai dari
+            video hingga desain grafis serta kemampuan teknis dalam pemrograman
+            mikrokontroler dan troubleshooting perangkat keras maupun sistem.
+            Kombinasi ini membantu saya memastikan setiap karya tidak hanya
+            tampil estetik, tetapi juga berfungsi secara optimal.
+          </p>
+          <p class="animate-slide-in" style="transition-delay: 200ms">
+            Melalui berbagai proyek yang telah saya selesaikan, saya juga
+            terbiasa mengandalkan kemampuan problem solving yang adaptif,
+            berkolaborasi dalam teamwork yang solid, serta mengambil peran
+            kepemimpinan untuk memastikan setiap target tercapai dengan baik.
+          </p>
+          <p class="animate-slide-in" style="transition-delay: 250ms">
+            Senang sekali bisa berbagi perjalanan kreatif dan teknis saya dengan
+            Anda. Jika Anda ingin berkolaborasi atau sekadar berdiskusi, jangan
+            ragu untuk menghubungi saya. Sampai jumpa di proyek selanjutnya!
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== Pengalaman Section ===== -->
+      <section class="mb-10">
+        <div class="mb-1">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-briefcase text-slate-400 text-lg"></i>
+            Pengalaman
+          </h2>
+          <p class="text-sm text-slate-400 mt-0.5">
+            Pengalaman profesional dan organisasi saya.
+          </p>
+        </div>
+        <hr class="border-white/10 mt-3 mb-4" />
+
+        <div class="space-y-3">
+          <!-- Entry: PLN -->
+          <div
+            class="animate-slide-in bg-slate-900/50 border border-white/5 rounded-2xl p-4 hover:border-white/15 hover:bg-slate-800/40 transition-colors duration-200"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5 shadow-sm"
+              >
+                <img
+                  src="/src/assets/image/Logo%20PLN.png"
+                  alt="PLN"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-bold text-white leading-snug">
+                  Divisi Jaringan &amp; Divisi Transaksi Energi
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  PLN UP3 Salatiga &nbsp;·&nbsp; Salatiga, Indonesia
+                </p>
+                <p class="text-xs text-slate-400 mt-0.5">
+                  Sep 2025 – Des 2025 &nbsp;·&nbsp;
+                  <span class="text-cyan-400">Magang</span> &nbsp;·&nbsp; Di
+                  Tempat
+                </p>
+              </div>
+            </div>
+            <details class="mt-3 group">
+              <summary
+                class="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white cursor-pointer list-none select-none"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-[10px] group-open:rotate-90 transition-transform"
+                ></i>
+                Tampilkan tanggung jawab
+              </summary>
+              <ul class="mt-2 text-xs text-slate-300 space-y-1 list-disc pl-5">
+                <li>
+                  Mendata program penerang jalan umum gratis oleh pemerintah di
+                  wilayah Salatiga, Ambarawa, dan Ungaran
+                </li>
+                <li>
+                  Melakukan pemeriksaan dan pemeliharaan kelistrikan di wilayah
+                  Salatiga dan Ambarawa
+                </li>
+                <li>
+                  Pembuatan alat monitoring trafo 3 fasa untuk wilayah Ambarawa
+                  dan sekitarnya
+                </li>
+              </ul>
+            </details>
+          </div>
+
+          <!-- Entry: Bank Indonesia -->
+          <div
+            class="animate-slide-in bg-slate-900/50 border border-white/5 rounded-2xl p-4 hover:border-white/15 hover:bg-slate-800/40 transition-colors duration-200"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5 shadow-sm"
+              >
+                <img
+                  src="/src/assets/image/Logo%20Bank%20Indonesia.png"
+                  alt="Bank Indonesia"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-bold text-white leading-snug">
+                  Host Live Streaming
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  Bank Indonesia &nbsp;·&nbsp; Semarang, Indonesia
+                </p>
+                <p class="text-xs text-slate-400 mt-0.5">
+                  Jun 2025 – Agu 2025 &nbsp;·&nbsp;
+                  <span class="text-emerald-400">Kerja</span> &nbsp;·&nbsp; Di
+                  Tempat
+                </p>
+              </div>
+            </div>
+            <details class="mt-3 group">
+              <summary
+                class="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white cursor-pointer list-none select-none"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-[10px] group-open:rotate-90 transition-transform"
+                ></i>
+                Tampilkan tanggung jawab
+              </summary>
+              <ul class="mt-2 text-xs text-slate-300 space-y-1 list-disc pl-5">
+                <li>
+                  Membawakan sesi live streaming ketika ada event produk UMKM
+                  Jawa Tengah
+                </li>
+                <li>
+                  Memperkenalkan dan membantu meningkatkan penjualan UMKM Jawa
+                  Tengah melalui media sosial
+                </li>
+                <li>
+                  Menjawab pertanyaan pelanggan secara langsung dan membangun
+                  loyalitas audiens secara konsisten
+                </li>
+              </ul>
+            </details>
+          </div>
+
+          <!-- Entry: Koffietori -->
+          <div
+            class="animate-slide-in bg-slate-900/50 border border-white/5 rounded-2xl p-4 hover:border-white/15 hover:bg-slate-800/40 transition-colors duration-200"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5 shadow-sm"
+              >
+                <img
+                  src="/src/assets/image/Logo%20Koffietori.png"
+                  alt="Koffietori"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-bold text-white leading-snug">
+                  Barista &amp; Waiters
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  Koffietori &nbsp;·&nbsp; Salatiga, Indonesia
+                </p>
+                <p class="text-xs text-slate-400 mt-0.5">
+                  Sep 2025 – Okt 2025 &nbsp;·&nbsp;
+                  <span class="text-emerald-400">Kerja</span> &nbsp;·&nbsp; Di
+                  Tempat
+                </p>
+              </div>
+            </div>
+            <details class="mt-3 group">
+              <summary
+                class="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white cursor-pointer list-none select-none"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-[10px] group-open:rotate-90 transition-transform"
+                ></i>
+                Tampilkan tanggung jawab
+              </summary>
+              <ul class="mt-2 text-xs text-slate-300 space-y-1 list-disc pl-5">
+                <li>Membuat aneka macam varian minuman berupa kopi</li>
+                <li>Memberikan pelayanan yang terbaik kepada customer</li>
+                <li>Menyajikan orderan yang dipesan customer</li>
+              </ul>
+            </details>
+          </div>
+
+          <!-- Entry: HME Litbang -->
+          <div
+            class="animate-slide-in bg-slate-900/50 border border-white/5 rounded-2xl p-4 hover:border-white/15 hover:bg-slate-800/40 transition-colors duration-200"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5 shadow-sm"
+              >
+                <img
+                  src="/src/assets/image/Logo%20HME.png"
+                  alt="HME"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-bold text-white leading-snug">
+                  Staf Penelitian dan Pengembangan
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  Himpunan Mahasiswa Elektro (HME) – Politeknik Negeri Semarang
+                </p>
+                <p class="text-xs text-slate-400 mt-0.5">
+                  Mei 2025 – Mei 2026 &nbsp;·&nbsp;
+                  <span class="text-blue-400">Organisasi</span> &nbsp;·&nbsp;
+                  Hybrid
+                </p>
+              </div>
+            </div>
+            <details class="mt-3 group">
+              <summary
+                class="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white cursor-pointer list-none select-none"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-[10px] group-open:rotate-90 transition-transform"
+                ></i>
+                Tampilkan tanggung jawab
+              </summary>
+              <ul class="mt-2 text-xs text-slate-300 space-y-1 list-disc pl-5">
+                <li>
+                  Bertanggung jawab untuk mengawasi kinerja administrator HME
+                  dan untuk pengembangan serta pemberdayaan HME
+                </li>
+                <li>
+                  Bertanggung jawab untuk mengawasi, mengevaluasi, dan
+                  memberikan solusi terbaik untuk kinerja seluruh sumber daya
+                  manusia HME
+                </li>
+              </ul>
+            </details>
+          </div>
+
+          <!-- Entry: HME Pengabdian -->
+          <div
+            class="animate-slide-in bg-slate-900/50 border border-white/5 rounded-2xl p-4 hover:border-white/15 hover:bg-slate-800/40 transition-colors duration-200"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5 shadow-sm"
+              >
+                <img
+                  src="/src/assets/image/Logo%20HME.png"
+                  alt="HME"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-bold text-white leading-snug">
+                  Kepala Divisi Pengabdian Masyarakat
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  Himpunan Mahasiswa Elektro (HME) – Politeknik Negeri Semarang
+                </p>
+                <p class="text-xs text-slate-400 mt-0.5">
+                  Mei 2024 – Mei 2025 &nbsp;·&nbsp;
+                  <span class="text-blue-400">Organisasi</span> &nbsp;·&nbsp;
+                  Hybrid
+                </p>
+              </div>
+            </div>
+            <details class="mt-3 group">
+              <summary
+                class="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white cursor-pointer list-none select-none"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-[10px] group-open:rotate-90 transition-transform"
+                ></i>
+                Tampilkan tanggung jawab
+              </summary>
+              <ul class="mt-2 text-xs text-slate-300 space-y-1 list-disc pl-5">
+                <li>
+                  Mengelola kegiatan sosial internal dan eksternal yang
+                  dilakukan oleh HME atau organisasi mahasiswa Teknik Elektro
+                  lainnya
+                </li>
+                <li>
+                  Memperjuangkan advokasi mahasiswa (banding UKT, cicilan UKT,
+                  mahasiswa bermasalah, dan asuransi mahasiswa)
+                </li>
+              </ul>
+            </details>
+          </div>
+
+          <!-- Entry: UP Radio -->
+          <div
+            class="animate-slide-in bg-slate-900/50 border border-white/5 rounded-2xl p-4 hover:border-white/15 hover:bg-slate-800/40 transition-colors duration-200"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5 shadow-sm"
+              >
+                <img
+                  src="/src/assets/image/Logo%20Up%20Radio%20Semarang.jpg"
+                  alt="UP Radio"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-bold text-white leading-snug">
+                  Operator dan Kreatif Tim
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  UP Radio Semarang &nbsp;·&nbsp; Semarang, Indonesia
+                </p>
+                <p class="text-xs text-slate-400 mt-0.5">
+                  Apr 2022 – Jul 2022 &nbsp;·&nbsp;
+                  <span class="text-cyan-400">Magang</span> &nbsp;·&nbsp; Di
+                  Tempat
+                </p>
+              </div>
+            </div>
+            <details class="mt-3 group">
+              <summary
+                class="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white cursor-pointer list-none select-none"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-[10px] group-open:rotate-90 transition-transform"
+                ></i>
+                Tampilkan tanggung jawab
+              </summary>
+              <ul class="mt-2 text-xs text-slate-300 space-y-1 list-disc pl-5">
+                <li>
+                  Mengoperasikan perangkat keras dan lunak siaran, termasuk
+                  konsol siaran, mikrofon, pemutar audio, dan sistem otomatisasi
+                </li>
+                <li>
+                  Mendesain ide konten promosi dan konten video untuk media
+                  sosial
+                </li>
+                <li>
+                  Mengenal dan memperbaiki peralatan operator jika terjadi
+                  kesalahan
+                </li>
+              </ul>
+            </details>
+          </div>
+
+          <!-- Entry: Sumber Bahagia -->
+          <div
+            class="animate-slide-in bg-slate-900/50 border border-white/5 rounded-2xl p-4 hover:border-white/15 hover:bg-slate-800/40 transition-colors duration-200"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5 shadow-sm"
+              >
+                <img
+                  src="/src/assets/image/Logo%20Sumber%20Bahagia%20Digital%20Printing.png"
+                  alt="Sumber Bahagia"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-bold text-white leading-snug">
+                  Operator Mesin &amp; Desain Grafis
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  CV. Sumber Bahagia Printing &nbsp;·&nbsp; Semarang, Indonesia
+                </p>
+                <p class="text-xs text-slate-400 mt-0.5">
+                  Jan 2022 – Mar 2022 &nbsp;·&nbsp;
+                  <span class="text-cyan-400">Magang</span> &nbsp;·&nbsp; Di
+                  Tempat
+                </p>
+              </div>
+            </div>
+            <details class="mt-3 group">
+              <summary
+                class="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white cursor-pointer list-none select-none"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-[10px] group-open:rotate-90 transition-transform"
+                ></i>
+                Tampilkan tanggung jawab
+              </summary>
+              <ul class="mt-2 text-xs text-slate-300 space-y-1 list-disc pl-5">
+                <li>
+                  Mengoperasikan dan memelihara mesin cetak untuk menghasilkan
+                  produk cetak berkualitas
+                </li>
+                <li>Memperbaiki mesin jika ada masalah</li>
+                <li>
+                  Mendesain dan membuat desain yang menarik dan efektif untuk
+                  berbagai materi cetak, seperti brosur, poster, kemasan, buku,
+                  dll
+                </li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Pendidikan Section ===== -->
+      <section class="mb-10">
+        <div class="flex items-start justify-between mb-1">
+          <div>
+            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+              <i class="fa-solid fa-graduation-cap text-slate-400 text-lg"></i>
+              Pendidikan
+            </h2>
+            <p class="text-sm text-slate-400 mt-0.5">Pendidikan saya.</p>
+          </div>
+          <a
+            href="/src/assets/cv/Curriculum%20Vitae%20Muhammad%20Daffa%20Raihansyah.pdf"
+            download
+            class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 hover:bg-white/10 hover:text-white transition-all duration-200 shrink-0 mt-1"
+          >
+            <i class="fa-solid fa-download text-[10px]"></i> Unduh CV
+          </a>
+        </div>
+        <hr class="border-white/10 mt-3 mb-4" />
+
+        <div class="space-y-3">
+          <!-- Entry: Polines -->
+          <div
+            class="animate-slide-in bg-slate-900/50 border border-white/5 rounded-2xl p-4 hover:border-white/15 hover:bg-slate-800/40 transition-colors duration-200"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5 shadow-sm"
+              >
+                <img
+                  src="/src/assets/image/Logo%20Polines.png"
+                  alt="Polines"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-bold text-white leading-snug">
+                  Politeknik Negeri Semarang
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">
+                  D3 - Teknik Elektronika
+                </p>
+                <p class="text-xs text-slate-400 mt-0.5">
+                  2023 – 2026 &nbsp;·&nbsp; Semarang, Indonesia
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry: SMKN 4 -->
+          <div
+            class="animate-slide-in bg-slate-900/50 border border-white/5 rounded-2xl p-4 hover:border-white/15 hover:bg-slate-800/40 transition-colors duration-200"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5 shadow-sm"
+              >
+                <img
+                  src="/src/assets/image/Logo%20SMKN%204%20Semarang.jpg"
+                  alt="SMKN 4"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-bold text-white leading-snug">
+                  SMK Negeri 4 Semarang
+                </h3>
+                <p class="text-xs text-slate-300 mt-0.5">Multimedia</p>
+                <p class="text-xs text-slate-400 mt-0.5">
+                  2020 – 2023 &nbsp;·&nbsp; Semarang, Indonesia
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Main Script -->
+    <script src="/src/js/main.js"></script>
+
+    <!-- Scroll Animation Observer -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".animate-slide-in");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const rect = entry.boundingClientRect;
+
+              if (entry.isIntersecting) {
+                // Element entering the viewport (scrolling down into view)
+                // Remove exit class first, then apply visible state
+                entry.target.classList.remove("exit-right");
+                // Small timeout to allow transition reset before adding visible
+                requestAnimationFrame(() => {
+                  entry.target.classList.add("is-visible");
+                });
+              } else {
+                // Element leaving the viewport
+                if (rect.top > 0) {
+                  // Element is BELOW the viewport → user scrolled UP past this card
+                  // Exit: slide out to the RIGHT and fade
+                  entry.target.classList.remove("is-visible");
+                  entry.target.classList.add("exit-right");
+                } else {
+                  // Element is ABOVE the viewport → user scrolled DOWN past it
+                  // Reset back to the initial left-hidden state (no exit-right)
+                  entry.target.classList.remove("is-visible");
+                  entry.target.classList.remove("exit-right");
+                }
+              }
+            });
+          },
+          {
+            // Use a small positive threshold so trigger fires as card enters
+            threshold: 0.08,
+            rootMargin: "0px 0px -20px 0px",
+          },
+        );
+
+        // Observe all cards — do NOT unobserve so it fires on every scroll
+        cards.forEach((card) => observer.observe(card));
+      });
+    </script>
+  </body>
+</html>
