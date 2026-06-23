@@ -15,6 +15,7 @@ export default defineConfig({
                 skills: resolve(__dirname, 'skills.html'),
                 projects: resolve(__dirname, 'projects.html'),
                 contact: resolve(__dirname, 'contact.html'),
+                portfolio: resolve(__dirname, 'portfolio.html'),
             }
         }
     }
