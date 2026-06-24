@@ -16,6 +16,7 @@
         if (mobileMenuButton && mobileMenu) {
             // Use touchstart + click to ensure it works on mobile browsers
             function toggleMenu(e) {
+                e.preventDefault(); // Mencegah double tap zoom atau click ganda
                 e.stopPropagation();
                 const isHidden = mobileMenu.classList.contains('hidden');
                 if (isHidden) {
@@ -30,15 +31,18 @@
             }
 
             mobileMenuButton.addEventListener('click', toggleMenu);
+            mobileMenuButton.addEventListener('touchstart', toggleMenu, { passive: false });
 
             // Close menu when clicking outside
-            document.addEventListener('click', function (e) {
+            function closeMenu(e) {
                 if (mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
                     mobileMenu.classList.add('hidden');
                     if (menuIcon) menuIcon.classList.remove('hidden');
                     if (closeIcon) closeIcon.classList.add('hidden');
                 }
-            });
+            }
+            document.addEventListener('click', closeMenu);
+            document.addEventListener('touchstart', closeMenu, { passive: true });
         }
 
         // ── 2. Highlight Active Nav Link ──────────────────────────────────────
@@ -76,6 +80,7 @@
         }
 
         function toggleTheme(e) {
+            e.preventDefault();
             e.stopPropagation();
             htmlElement.classList.toggle('light-mode');
             const isLight = htmlElement.classList.contains('light-mode');
@@ -85,9 +90,11 @@
 
         if (themeToggleDesktop) {
             themeToggleDesktop.addEventListener('click', toggleTheme);
+            themeToggleDesktop.addEventListener('touchstart', toggleTheme, { passive: false });
         }
         if (themeToggleMobile) {
             themeToggleMobile.addEventListener('click', toggleTheme);
+            themeToggleMobile.addEventListener('touchstart', toggleTheme, { passive: false });
         }
 
         // ── 4. Background Music Persistence ──────────────────────────────────
