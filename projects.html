@@ -256,9 +256,9 @@
         <div class="flex items-center justify-between h-20">
           <div class="flex items-center gap-4">
             <a
-              href="javascript:history.back()"
+              href="index.html"
               class="text-slate-400 hover:text-white transition-colors"
-              title="Kembali"
+              title="Kembali ke Beranda"
             >
               <i class="fa-solid fa-arrow-left"></i>
             </a>
@@ -297,8 +297,20 @@
                 >Kontak</a
               >
             </div>
+            <button
+              id="theme-toggle-desktop"
+              class="ml-6 text-slate-300 hover:text-cyan-400 transition-colors text-xl"
+            >
+              <i class="fa-solid fa-toggle-off text-2xl"></i>
+            </button>
           </div>
-          <div class="-mr-2 flex md:hidden">
+          <div class="-mr-2 flex md:hidden items-center gap-4">
+            <button
+              id="theme-toggle-mobile"
+              class="text-slate-300 hover:text-cyan-400 transition-colors text-xl"
+            >
+              <i class="fa-solid fa-toggle-off text-2xl"></i>
+            </button>
             <button
               id="mobile-menu-button"
               type="button"
@@ -725,17 +737,6 @@
         );
 
         cards.forEach((card) => observer.observe(card));
-
-        // ─── Mobile menu ────────────────────────────────────────
-        const menuBtn = document.getElementById("mobile-menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const menuIcon = document.getElementById("menu-icon");
-        const closeIcon = document.getElementById("close-icon");
-        menuBtn.addEventListener("click", () => {
-          mobileMenu.classList.toggle("hidden");
-          menuIcon.classList.toggle("hidden");
-          closeIcon.classList.toggle("hidden");
-        });
       });
     </script>
   </body>
